@@ -11,7 +11,7 @@ $wgSohucsConf = 搜狐畅言生成的conf<br>
 关于搜狐畅言appid和conf查看的方法：http://changyan.kuaizhan.com/setting/common/isv-mgr
 
 ## English
-This is a extension name Sohucs (http://changyan.kuaizhan.com/ , like Desqus) for Mediawiki's extension.<br>
+This is a extension name Sohucs (http://changyan.kuaizhan.com/ , like Disqus) for Mediawiki's extension.<br>
 Install:copy the Sohucs directory to your mediawiki\extensions
 
 Then add:
