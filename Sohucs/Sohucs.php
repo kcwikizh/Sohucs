@@ -47,8 +47,8 @@ function SohucsExtension() {
 
 // Renders Sohucs embed code
 function render_Sohucs($input, $argv, $parser = null) {
-	global $wgSohucsAppid, $wgTitle, $wgRequest, $wgSohucsConf, $wgSid;
 	if ($wgSohucsShortName == "") {
+	global $wgSohucsAppid, $wgTitle, $wgSohucsConf;
 		echo('Please, set $wgSohucsAppid in LocalSettings.php');
 		die(1);
 	}
@@ -57,8 +57,6 @@ function render_Sohucs($input, $argv, $parser = null) {
 		echo('Please, set $wgSohucsConf in LocalSettings.php');
 		die(1);
 	}
-	session_start();
-	$wgSid = md5($_SERVER['PHP_SELF']);
 	
 	if (!$parser) $parser =& $GLOBALS['wgParser'];
 	$output = <<<eot
@@ -74,7 +72,7 @@ class Sohucs{
 	// Documentation: \mediawiki-1.16.0\docs\hooks.txt
 	public static function onSkinAfterContent(&$data, $skin = null)
 	{
-		global $wgSohucsAppid, $wgTitle, $wgRequest, $wgOut, $wgSohucsConf, $wgSid;
+		global $wgSohucsAppid, $wgTitle, $wgRequest, $wgOut, $wgSohucsConf;
 	
 		if($wgTitle->isSpecialPage()
 			|| $wgTitle->getArticleID() == 0
@@ -97,8 +95,7 @@ class Sohucs{
 			echo('Please, set $wgSohucsConf in LocalSettings.php');
 			die(1);
 		}
-		//session_start();
-		$wgSid = md5($_SERVER['PHP_SELF']);
+		
 		$data = <<<eot
 		<div id="SOHUCS" sid="{$wgTitle->getArticleID()}"></div>
 eot;
