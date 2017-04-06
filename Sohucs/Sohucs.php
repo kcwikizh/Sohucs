@@ -47,13 +47,13 @@ function SohucsExtension() {
 
 // Renders Sohucs embed code
 function render_Sohucs($input, $argv, $parser = null) {
-	if ($wgSohucsShortName == "") {
 	global $wgSohucsAppid, $wgTitle, $wgSohucsConf;
+	if ($wgSohucsAppid == "") {
 		echo('Please, set $wgSohucsAppid in LocalSettings.php');
 		die(1);
 	}
 	
-	if ($wgSohucsShortName == "") {
+	if ($wgSohucsConf == "") {
 		echo('Please, set $wgSohucsConf in LocalSettings.php');
 		die(1);
 	}
