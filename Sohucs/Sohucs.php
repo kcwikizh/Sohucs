@@ -67,7 +67,7 @@ function render_Sohucs($input, $argv, $parser = null) {
 	
 	if (!$parser) $parser =& $GLOBALS['wgParser'];
 	$output = <<<eot
-		<div id="SOHUCS" sid="{$wgSid}"></div>
+		<div id="SOHUCS" sid="{$wgTitle->getArticleID()}"></div>
 eot;
 	return $output;
 }
@@ -105,7 +105,7 @@ class Sohucs{
 		//session_start();
 		$wgSid = md5($_SERVER['PHP_SELF']);
 		$data = <<<eot
-		<div id="SOHUCS" sid="{$wgSid}"></div>
+		<div id="SOHUCS" sid="{$wgTitle->getArticleID()}"></div>
 eot;
 		
 			
