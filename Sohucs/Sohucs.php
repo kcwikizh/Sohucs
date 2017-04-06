@@ -34,11 +34,6 @@ $wgExtensionFunctions[] = "SohucsExtension";
 $wgHooks['SkinAfterContent'][] = 'Sohucs::onSkinAfterContent';
 $wgHooks['SkinAfterBottomScripts'][] = 'Sohucs::onSkinAfterBottomScripts';
 
-if (function_exists('hash_hmac')){
-	$wgHooks['UserLoginComplete'][] = 'Sohucs::onUserLoginComplete';
-	$wgHooks['UserLogoutComplete'][] = 'Sohucs::onUserLogoutComplete';
-}
-
 // Sohucs tag
 function SohucsExtension() {
 	global $wgParser;
